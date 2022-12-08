@@ -9,7 +9,7 @@ def connect(host_name: str, username: str, port: str, passwor: str, db_name: str
 
 
 def create_db(host_name:str, username:str, port:str, secret_name:str, db_name:str):
-    password = get_secret("db_conn_secret")
-    db_conn = connect(host_name, username, port, password, db_name)
+    db_secret = get_secret("db_conn_secret")
+    db_conn = connect(db_secret["host_name"], db_secret["username"], db_secret["port"], db_secret["password"], db_secret["db_name"])
     return db_conn
 
