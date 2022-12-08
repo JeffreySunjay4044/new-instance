@@ -30,4 +30,4 @@ def get_secret(secret_name: str) -> dict:
         else:
             secret = base64.b64decode(get_secret_value_response['SecretBinary'])
 
-    return secret  # returns the secret as dictionary
+    return json.loads(secret)  # returns the secret as dictionary
